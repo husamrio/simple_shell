@@ -17,18 +17,18 @@ int isChain(data_t *info, char *buffer, size_t *position)
 	{
 		buffer[index] = 0;
 		index++;
-		info->commandBufferType = CMD_OR;
+		info->commandbuffertype = CMD_OR;
 	}
 	else if (buffer[index] == '&' && buffer[index + 1] == '&')
 	{
 		buffer[index] = 0;
 		index++;
-		info->commandBufferType = CMD_AND;
+		info->commandbuffertype = CMD_AND;
 	}
 	else if (buffer[index] == ';') /* found end of this command */
 	{
 		buffer[index] = 0; /* replace semicolon with null */
-		info->commandBufferType = CMD_CHAIN;
+		info->commandbuffertype = CMD_CHAIN;
 	}
 	else
 		return (0);
@@ -51,7 +51,7 @@ void contChain(data_t *pInfo, char *bu, size_t *cPos, size_t stIdx, size_t len)
 {
 	size_t newPos = *cPos;
 
-	if (pInfo->commandBufferType == CMD_AND)
+	if (pInfo->commandbuffertype == CMD_AND)
 	{
 		if (pInfo->status)
 		{
@@ -59,7 +59,7 @@ void contChain(data_t *pInfo, char *bu, size_t *cPos, size_t stIdx, size_t len)
 			newPos = len;
 		}
 	}
-	if (pInfo->commandBufferType == CMD_OR)
+	if (pInfo->commandbuffertype == CMD_OR)
 	{
 		if (!pInfo->status)
 		{

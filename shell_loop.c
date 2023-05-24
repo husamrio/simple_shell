@@ -72,7 +72,7 @@ for (i = 0; builtintbl[i].type; i++)
 {
 if (betty_strcmp(info->arguments[0], builtintbl[i].type) == 0)
 {
-info->lineCount++;
+info->linecount++;
 builtinRet = builtintbl[i].func(info);
 break;
 }
@@ -95,7 +95,7 @@ int i, count;
 info->path = info->arguments[0];
 if (info->line_count_flag == 1)
 {
-info->lineCount++;
+info->linecount++;
 info->line_count_flag = 0;
 }
 
